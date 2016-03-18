@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/03/2016 04:48:44 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.Tusuario" table="TUsuario" schema="dbo" catalog="DBAPPAgendaJava" optimistic-lock="version">
+        <id name="codigoUsuario" type="string">
+            <column name="codigoUsuario" length="15" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" not-null="true" />
+        </property>
+        <property name="apellidoPaterno" type="string">
+            <column name="apellidoPaterno" length="20" not-null="true" />
+        </property>
+        <property name="apellidoMaterno" type="string">
+            <column name="apellidoMaterno" length="20" not-null="true" />
+        </property>
+        <property name="correoElectronico" type="string">
+            <column name="correoElectronico" length="30" not-null="true" />
+        </property>
+        <property name="contrasenia" type="string">
+            <column name="contrasenia" length="700" not-null="true" />
+        </property>
+        <property name="fechaNacimiento" type="serializable">
+            <column name="fechaNacimiento" not-null="true" />
+        </property>
+        <property name="sexo" type="char">
+            <column name="sexo" length="1" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="20" not-null="true" />
+        </property>
+        <property name="fechaRegistro" type="timestamp">
+            <column name="fechaRegistro" length="23" not-null="true" />
+        </property>
+        <property name="fechaModificacion" type="timestamp">
+            <column name="fechaModificacion" length="23" not-null="true" />
+        </property>
+        <set name="tusuarioAmigos" table="TUsuarioAmigo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigoUsuario" length="15" not-null="true" />
+            </key>
+            <one-to-many class="com.pojos.TusuarioAmigo" />
+        </set>
+        <set name="tactividads" table="TActividad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigoUsuario" length="15" not-null="true" />
+            </key>
+            <one-to-many class="com.pojos.Tactividad" />
+        </set>
+    </class>
+</hibernate-mapping>

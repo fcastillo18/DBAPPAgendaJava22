@@ -1,0 +1,24 @@
+Configuracion Hibernate
+
+1- Agregar el driver de conexion (en netbeans esta en servicios)
+2- En databases, crear una nueva conexion elegiendo el driver de conexion configurado antes (remember dbo)
+3- Agregar a la libreria del proyecto el jar del proveedor de sql (preferible ubicar en una carpeta del proyecto y de ahi agregarlo luego)
+4-(Netbeans) click derecho en el proyecto/framworks/add/hibernate se elige la conexion creada en el paso 2 y luego de aceptar
+se agregaran todos los jar necesarios de hibernate al proyecto y se crea este archivo:
+               hibernate.cfg: archivo de configuracion
+5-hibernate.cfg: configuraciones 
+    en configuration properties, para mostrar las consultas mientras de persiste la db
+    <property name="hibernate.show_sql">true</property>
+    en miscellaneous, para que pueda aceptar multiples conexiones en el session factory
+    <property name="hibernate.current_session_context_class">thread</property>
+
+
+6-archivo HibernateUtil: para realizar nuestras secciones de conexion
+
+7-archivo Hibernate.reveng.xml: reverse enginiering 
+Nos va a servir para mapear de forma automatica nuestros archivos
+
+8-archivos Pojos o Hibernate Mapping files and Pojos from database
+
+
+

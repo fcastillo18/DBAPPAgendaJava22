@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="DBAPPAgendaJava"/>
+  <table-filter match-name="TUsuarioAmigo"/>
+  <table-filter match-name="TActividadComentario"/>
+  <table-filter match-name="TUsuario"/>
+  <table-filter match-name="TUsuarioAmigoTelefono"/>
+  <table-filter match-name="TActividadParticipante"/>
+  <table-filter match-name="TUnidadMedida"/>
+  <table-filter match-name="TActividadPresupuesto"/>
+  <table-filter match-name="TActividad"/>
+</hibernate-reverse-engineering>
