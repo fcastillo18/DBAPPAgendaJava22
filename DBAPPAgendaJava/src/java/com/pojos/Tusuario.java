@@ -1,8 +1,7 @@
 package com.pojos;
-// Generated 18/03/2016 04:48:44 PM by Hibernate Tools 4.3.1
+// Generated 01/04/2016 05:12:53 PM by Hibernate Tools 4.3.1
 
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,19 +18,19 @@ public class Tusuario  implements java.io.Serializable {
      private String apellidoMaterno;
      private String correoElectronico;
      private String contrasenia;
-     private Serializable fechaNacimiento;
+     private Date fechaNacimiento;
      private char sexo;
      private String telefono;
      private Date fechaRegistro;
      private Date fechaModificacion;
-     private Set tusuarioAmigos = new HashSet(0);
      private Set tactividads = new HashSet(0);
+     private Set tusuarioAmigos = new HashSet(0);
 
     public Tusuario() {
     }
 
 	
-    public Tusuario(String codigoUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Serializable fechaNacimiento, char sexo, String telefono, Date fechaRegistro, Date fechaModificacion) {
+    public Tusuario(String codigoUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Date fechaNacimiento, char sexo, String telefono) {
         this.codigoUsuario = codigoUsuario;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -41,10 +40,8 @@ public class Tusuario  implements java.io.Serializable {
         this.fechaNacimiento = fechaNacimiento;
         this.sexo = sexo;
         this.telefono = telefono;
-        this.fechaRegistro = fechaRegistro;
-        this.fechaModificacion = fechaModificacion;
     }
-    public Tusuario(String codigoUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Serializable fechaNacimiento, char sexo, String telefono, Date fechaRegistro, Date fechaModificacion, Set tusuarioAmigos, Set tactividads) {
+    public Tusuario(String codigoUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Date fechaNacimiento, char sexo, String telefono, Date fechaRegistro, Date fechaModificacion, Set tactividads, Set tusuarioAmigos) {
        this.codigoUsuario = codigoUsuario;
        this.nombre = nombre;
        this.apellidoPaterno = apellidoPaterno;
@@ -56,8 +53,8 @@ public class Tusuario  implements java.io.Serializable {
        this.telefono = telefono;
        this.fechaRegistro = fechaRegistro;
        this.fechaModificacion = fechaModificacion;
-       this.tusuarioAmigos = tusuarioAmigos;
        this.tactividads = tactividads;
+       this.tusuarioAmigos = tusuarioAmigos;
     }
    
     public String getCodigoUsuario() {
@@ -102,11 +99,11 @@ public class Tusuario  implements java.io.Serializable {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
-    public Serializable getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return this.fechaNacimiento;
     }
     
-    public void setFechaNacimiento(Serializable fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
     public char getSexo() {
@@ -137,19 +134,19 @@ public class Tusuario  implements java.io.Serializable {
     public void setFechaModificacion(Date fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
     }
-    public Set getTusuarioAmigos() {
-        return this.tusuarioAmigos;
-    }
-    
-    public void setTusuarioAmigos(Set tusuarioAmigos) {
-        this.tusuarioAmigos = tusuarioAmigos;
-    }
     public Set getTactividads() {
         return this.tactividads;
     }
     
     public void setTactividads(Set tactividads) {
         this.tactividads = tactividads;
+    }
+    public Set getTusuarioAmigos() {
+        return this.tusuarioAmigos;
+    }
+    
+    public void setTusuarioAmigos(Set tusuarioAmigos) {
+        this.tusuarioAmigos = tusuarioAmigos;
     }
 
 

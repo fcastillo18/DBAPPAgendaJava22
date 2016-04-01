@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated 18/03/2016 04:48:44 PM by Hibernate Tools 4.3.1
+// Generated 01/04/2016 05:12:53 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,6 +20,13 @@ public class TactividadComentario  implements java.io.Serializable {
     public TactividadComentario() {
     }
 
+	
+    public TactividadComentario(String codigoActividadComentario, Tactividad tactividad, TusuarioAmigo tusuarioAmigo, String comentario) {
+        this.codigoActividadComentario = codigoActividadComentario;
+        this.tactividad = tactividad;
+        this.tusuarioAmigo = tusuarioAmigo;
+        this.comentario = comentario;
+    }
     public TactividadComentario(String codigoActividadComentario, Tactividad tactividad, TusuarioAmigo tusuarioAmigo, String comentario, Date fechaRegistro, Date fechaModificacion) {
        this.codigoActividadComentario = codigoActividadComentario;
        this.tactividad = tactividad;

@@ -1,57 +1,56 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 18/03/2016 04:48:44 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/04/2016 05:12:53 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.pojos.Tactividad" table="TActividad" schema="dbo" catalog="DBAPPAgendaJava" optimistic-lock="version">
-        <id name="codigoActividad" type="string">
-            <column name="codigoActividad" length="15" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="tusuario" class="com.pojos.Tusuario" fetch="select">
-            <column name="codigoUsuario" length="15" not-null="true" />
-        </many-to-one>
-        <property name="nombre" type="string">
-            <column name="nombre" length="700" not-null="true" />
-        </property>
-        <property name="descripcion" type="string">
-            <column name="descripcion" not-null="true" />
-        </property>
-        <property name="fechaInicio" type="timestamp">
-            <column name="fechaInicio" length="23" not-null="true" />
-        </property>
-        <property name="fechaFin" type="timestamp">
-            <column name="fechaFin" length="23" not-null="true" />
-        </property>
-        <property name="presupuestoTotal" type="big_decimal">
-            <column name="presupuestoTotal" precision="8" not-null="true" />
-        </property>
-        <property name="estado" type="char">
-            <column name="estado" length="1" not-null="true" />
-        </property>
-        <property name="fechaRegistro" type="timestamp">
-            <column name="fechaRegistro" length="23" not-null="true" />
-        </property>
-        <property name="fechaModificacion" type="timestamp">
-            <column name="fechaModificacion" length="23" not-null="true" />
-        </property>
-        <set name="tactividadComentarios" table="TActividadComentario" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="codigoActividad" length="15" not-null="true" />
-            </key>
-            <one-to-many class="com.pojos.TactividadComentario" />
-        </set>
-        <set name="tactividadPresupuestos" table="TActividadPresupuesto" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="codigoActividad" length="15" not-null="true" />
-            </key>
-            <one-to-many class="com.pojos.TactividadPresupuesto" />
-        </set>
-        <set name="tactividadParticipantes" table="TActividadParticipante" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="codigoActividad" length="15" not-null="true" />
-            </key>
-            <one-to-many class="com.pojos.TactividadParticipante" />
-        </set>
-    </class>
+  <class catalog="DBAPPAgendaJava" name="com.pojos.Tactividad" optimistic-lock="version" schema="dbo" table="TActividad">
+    <id name="codigoActividad" type="string">
+      <column length="15" name="codigoActividad"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.pojos.Tusuario" fetch="select" name="tusuario">
+      <column length="15" name="codigoUsuario" not-null="true"/>
+    </many-to-one>
+    <property name="nombre" type="string">
+      <column length="700" name="nombre" not-null="true"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column name="descripcion" not-null="true"/>
+    </property>
+    <property name="fechaInicio" type="timestamp">
+      <column length="23" name="fechaInicio" not-null="true"/>
+    </property>
+    <property name="fechaFin" type="timestamp">
+      <column length="23" name="fechaFin" not-null="true"/>
+    </property>
+    <property name="presupuestoTotal" type="big_decimal">
+      <column name="presupuestoTotal" not-null="true" precision="8"/>
+    </property>
+    <property name="estado" type="char">
+      <column length="1" name="estado" not-null="true"/>
+    </property>
+    <property name="fechaRegistro" type="timestamp">
+      <column length="23" name="fechaRegistro"/>
+    </property>
+    <property name="fechaModificacion" type="timestamp">
+      <column length="23" name="fechaModificacion"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tactividadPresupuestos" table="TActividadPresupuesto">
+      <key>
+        <column length="15" name="codigoActividad" not-null="true"/>
+      </key>
+      <one-to-many class="com.pojos.TactividadPresupuesto"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="tactividadComentarios" table="TActividadComentario">
+      <key>
+        <column length="15" name="codigoActividad" not-null="true"/>
+      </key>
+      <one-to-many class="com.pojos.TactividadComentario"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="tactividadParticipantes" table="TActividadParticipante">
+      <key>
+        <column length="15" name="codigoActividad" not-null="true"/>
+      </key>
+      <one-to-many class="com.pojos.TactividadParticipante"/>
+    </set>
+  </class>
 </hibernate-mapping>

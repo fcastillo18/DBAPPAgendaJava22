@@ -1,8 +1,7 @@
 package com.pojos;
-// Generated 18/03/2016 04:48:44 PM by Hibernate Tools 4.3.1
+// Generated 01/04/2016 05:12:53 PM by Hibernate Tools 4.3.1
 
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,20 +19,20 @@ public class TusuarioAmigo  implements java.io.Serializable {
      private String apellidoMaterno;
      private String correoElectronico;
      private String contrasenia;
-     private Serializable fechaNacimiento;
+     private Date fechaNacimiento;
      private char sexo;
      private String telefono;
      private Date fechaRegistro;
      private Date fechaModificacion;
+     private Set tusuarioAmigoTelefonos = new HashSet(0);
      private Set tactividadComentarios = new HashSet(0);
      private Set tactividadParticipantes = new HashSet(0);
-     private Set tusuarioAmigoTelefonos = new HashSet(0);
 
     public TusuarioAmigo() {
     }
 
 	
-    public TusuarioAmigo(String codigoUsuarioAmigo, Tusuario tusuario, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Serializable fechaNacimiento, char sexo, String telefono, Date fechaRegistro, Date fechaModificacion) {
+    public TusuarioAmigo(String codigoUsuarioAmigo, Tusuario tusuario, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Date fechaNacimiento, char sexo, String telefono) {
         this.codigoUsuarioAmigo = codigoUsuarioAmigo;
         this.tusuario = tusuario;
         this.nombre = nombre;
@@ -44,10 +43,8 @@ public class TusuarioAmigo  implements java.io.Serializable {
         this.fechaNacimiento = fechaNacimiento;
         this.sexo = sexo;
         this.telefono = telefono;
-        this.fechaRegistro = fechaRegistro;
-        this.fechaModificacion = fechaModificacion;
     }
-    public TusuarioAmigo(String codigoUsuarioAmigo, Tusuario tusuario, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Serializable fechaNacimiento, char sexo, String telefono, Date fechaRegistro, Date fechaModificacion, Set tactividadComentarios, Set tactividadParticipantes, Set tusuarioAmigoTelefonos) {
+    public TusuarioAmigo(String codigoUsuarioAmigo, Tusuario tusuario, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, Date fechaNacimiento, char sexo, String telefono, Date fechaRegistro, Date fechaModificacion, Set tusuarioAmigoTelefonos, Set tactividadComentarios, Set tactividadParticipantes) {
        this.codigoUsuarioAmigo = codigoUsuarioAmigo;
        this.tusuario = tusuario;
        this.nombre = nombre;
@@ -60,9 +57,9 @@ public class TusuarioAmigo  implements java.io.Serializable {
        this.telefono = telefono;
        this.fechaRegistro = fechaRegistro;
        this.fechaModificacion = fechaModificacion;
+       this.tusuarioAmigoTelefonos = tusuarioAmigoTelefonos;
        this.tactividadComentarios = tactividadComentarios;
        this.tactividadParticipantes = tactividadParticipantes;
-       this.tusuarioAmigoTelefonos = tusuarioAmigoTelefonos;
     }
    
     public String getCodigoUsuarioAmigo() {
@@ -114,11 +111,11 @@ public class TusuarioAmigo  implements java.io.Serializable {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
-    public Serializable getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return this.fechaNacimiento;
     }
     
-    public void setFechaNacimiento(Serializable fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
     public char getSexo() {
@@ -149,6 +146,13 @@ public class TusuarioAmigo  implements java.io.Serializable {
     public void setFechaModificacion(Date fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
     }
+    public Set getTusuarioAmigoTelefonos() {
+        return this.tusuarioAmigoTelefonos;
+    }
+    
+    public void setTusuarioAmigoTelefonos(Set tusuarioAmigoTelefonos) {
+        this.tusuarioAmigoTelefonos = tusuarioAmigoTelefonos;
+    }
     public Set getTactividadComentarios() {
         return this.tactividadComentarios;
     }
@@ -162,13 +166,6 @@ public class TusuarioAmigo  implements java.io.Serializable {
     
     public void setTactividadParticipantes(Set tactividadParticipantes) {
         this.tactividadParticipantes = tactividadParticipantes;
-    }
-    public Set getTusuarioAmigoTelefonos() {
-        return this.tusuarioAmigoTelefonos;
-    }
-    
-    public void setTusuarioAmigoTelefonos(Set tusuarioAmigoTelefonos) {
-        this.tusuarioAmigoTelefonos = tusuarioAmigoTelefonos;
     }
 
 

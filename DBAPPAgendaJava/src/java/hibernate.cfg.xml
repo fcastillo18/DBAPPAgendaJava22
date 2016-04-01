@@ -8,13 +8,13 @@
     <property name="hibernate.connection.password">sa</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="com/pojos/TusuarioAmigo.hbm.xml"/>
     <mapping resource="com/pojos/TactividadParticipante.hbm.xml"/>
-    <mapping resource="com/pojos/Tactividad.hbm.xml"/>
     <mapping resource="com/pojos/TactividadPresupuesto.hbm.xml"/>
     <mapping resource="com/pojos/TusuarioAmigoTelefono.hbm.xml"/>
-    <mapping resource="com/pojos/Tusuario.hbm.xml"/>
-    <mapping resource="com/pojos/TusuarioAmigo.hbm.xml"/>
-    <mapping resource="com/pojos/TactividadComentario.hbm.xml"/>
+    <mapping resource="com/pojos/Tactividad.hbm.xml"/>
     <mapping resource="com/pojos/TunidadMedida.hbm.xml"/>
+    <mapping resource="com/pojos/Tusuario.hbm.xml"/>
+    <mapping resource="com/pojos/TactividadComentario.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -1,63 +1,62 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 18/03/2016 04:48:44 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/04/2016 05:12:53 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.pojos.TusuarioAmigo" table="TUsuarioAmigo" schema="dbo" catalog="DBAPPAgendaJava" optimistic-lock="version">
-        <id name="codigoUsuarioAmigo" type="string">
-            <column name="codigoUsuarioAmigo" length="15" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="tusuario" class="com.pojos.Tusuario" fetch="select">
-            <column name="codigoUsuario" length="15" not-null="true" />
-        </many-to-one>
-        <property name="nombre" type="string">
-            <column name="nombre" length="30" not-null="true" />
-        </property>
-        <property name="apellidoPaterno" type="string">
-            <column name="apellidoPaterno" length="20" not-null="true" />
-        </property>
-        <property name="apellidoMaterno" type="string">
-            <column name="apellidoMaterno" length="20" not-null="true" />
-        </property>
-        <property name="correoElectronico" type="string">
-            <column name="correoElectronico" length="30" not-null="true" />
-        </property>
-        <property name="contrasenia" type="string">
-            <column name="contrasenia" length="700" not-null="true" />
-        </property>
-        <property name="fechaNacimiento" type="serializable">
-            <column name="fechaNacimiento" not-null="true" />
-        </property>
-        <property name="sexo" type="char">
-            <column name="sexo" length="1" not-null="true" />
-        </property>
-        <property name="telefono" type="string">
-            <column name="telefono" length="20" not-null="true" />
-        </property>
-        <property name="fechaRegistro" type="timestamp">
-            <column name="fechaRegistro" length="23" not-null="true" />
-        </property>
-        <property name="fechaModificacion" type="timestamp">
-            <column name="fechaModificacion" length="23" not-null="true" />
-        </property>
-        <set name="tactividadComentarios" table="TActividadComentario" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="codigoUsuarioAmigo" length="15" not-null="true" />
-            </key>
-            <one-to-many class="com.pojos.TactividadComentario" />
-        </set>
-        <set name="tactividadParticipantes" table="TActividadParticipante" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="codigoUsuarioAmigo" length="15" not-null="true" />
-            </key>
-            <one-to-many class="com.pojos.TactividadParticipante" />
-        </set>
-        <set name="tusuarioAmigoTelefonos" table="TUsuarioAmigoTelefono" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="codigoUsuarioAmigo" length="15" not-null="true" />
-            </key>
-            <one-to-many class="com.pojos.TusuarioAmigoTelefono" />
-        </set>
-    </class>
+  <class catalog="DBAPPAgendaJava" name="com.pojos.TusuarioAmigo" optimistic-lock="version" schema="dbo" table="TUsuarioAmigo">
+    <id name="codigoUsuarioAmigo" type="string">
+      <column length="15" name="codigoUsuarioAmigo"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.pojos.Tusuario" fetch="select" name="tusuario">
+      <column length="15" name="codigoUsuario" not-null="true"/>
+    </many-to-one>
+    <property name="nombre" type="string">
+      <column length="30" name="nombre" not-null="true"/>
+    </property>
+    <property name="apellidoPaterno" type="string">
+      <column length="20" name="apellidoPaterno" not-null="true"/>
+    </property>
+    <property name="apellidoMaterno" type="string">
+      <column length="20" name="apellidoMaterno" not-null="true"/>
+    </property>
+    <property name="correoElectronico" type="string">
+      <column length="30" name="correoElectronico" not-null="true"/>
+    </property>
+    <property name="contrasenia" type="string">
+      <column length="700" name="contrasenia" not-null="true"/>
+    </property>
+    <property name="fechaNacimiento" type="timestamp">
+      <column length="23" name="fechaNacimiento" not-null="true"/>
+    </property>
+    <property name="sexo" type="char">
+      <column length="1" name="sexo" not-null="true"/>
+    </property>
+    <property name="telefono" type="string">
+      <column length="20" name="telefono" not-null="true"/>
+    </property>
+    <property name="fechaRegistro" type="timestamp">
+      <column length="23" name="fechaRegistro"/>
+    </property>
+    <property name="fechaModificacion" type="timestamp">
+      <column length="23" name="fechaModificacion"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tusuarioAmigoTelefonos" table="TUsuarioAmigoTelefono">
+      <key>
+        <column length="15" name="codigoUsuarioAmigo" not-null="true"/>
+      </key>
+      <one-to-many class="com.pojos.TusuarioAmigoTelefono"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="tactividadComentarios" table="TActividadComentario">
+      <key>
+        <column length="15" name="codigoUsuarioAmigo" not-null="true"/>
+      </key>
+      <one-to-many class="com.pojos.TactividadComentario"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="tactividadParticipantes" table="TActividadParticipante">
+      <key>
+        <column length="15" name="codigoUsuarioAmigo" not-null="true"/>
+      </key>
+      <one-to-many class="com.pojos.TactividadParticipante"/>
+    </set>
+  </class>
 </hibernate-mapping>

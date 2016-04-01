@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated 18/03/2016 04:48:44 PM by Hibernate Tools 4.3.1
+// Generated 01/04/2016 05:12:53 PM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -23,15 +23,15 @@ public class Tactividad  implements java.io.Serializable {
      private char estado;
      private Date fechaRegistro;
      private Date fechaModificacion;
-     private Set tactividadComentarios = new HashSet(0);
      private Set tactividadPresupuestos = new HashSet(0);
+     private Set tactividadComentarios = new HashSet(0);
      private Set tactividadParticipantes = new HashSet(0);
 
     public Tactividad() {
     }
 
 	
-    public Tactividad(String codigoActividad, Tusuario tusuario, String nombre, String descripcion, Date fechaInicio, Date fechaFin, BigDecimal presupuestoTotal, char estado, Date fechaRegistro, Date fechaModificacion) {
+    public Tactividad(String codigoActividad, Tusuario tusuario, String nombre, String descripcion, Date fechaInicio, Date fechaFin, BigDecimal presupuestoTotal, char estado) {
         this.codigoActividad = codigoActividad;
         this.tusuario = tusuario;
         this.nombre = nombre;
@@ -40,10 +40,8 @@ public class Tactividad  implements java.io.Serializable {
         this.fechaFin = fechaFin;
         this.presupuestoTotal = presupuestoTotal;
         this.estado = estado;
-        this.fechaRegistro = fechaRegistro;
-        this.fechaModificacion = fechaModificacion;
     }
-    public Tactividad(String codigoActividad, Tusuario tusuario, String nombre, String descripcion, Date fechaInicio, Date fechaFin, BigDecimal presupuestoTotal, char estado, Date fechaRegistro, Date fechaModificacion, Set tactividadComentarios, Set tactividadPresupuestos, Set tactividadParticipantes) {
+    public Tactividad(String codigoActividad, Tusuario tusuario, String nombre, String descripcion, Date fechaInicio, Date fechaFin, BigDecimal presupuestoTotal, char estado, Date fechaRegistro, Date fechaModificacion, Set tactividadPresupuestos, Set tactividadComentarios, Set tactividadParticipantes) {
        this.codigoActividad = codigoActividad;
        this.tusuario = tusuario;
        this.nombre = nombre;
@@ -54,8 +52,8 @@ public class Tactividad  implements java.io.Serializable {
        this.estado = estado;
        this.fechaRegistro = fechaRegistro;
        this.fechaModificacion = fechaModificacion;
-       this.tactividadComentarios = tactividadComentarios;
        this.tactividadPresupuestos = tactividadPresupuestos;
+       this.tactividadComentarios = tactividadComentarios;
        this.tactividadParticipantes = tactividadParticipantes;
     }
    
@@ -129,19 +127,19 @@ public class Tactividad  implements java.io.Serializable {
     public void setFechaModificacion(Date fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
     }
-    public Set getTactividadComentarios() {
-        return this.tactividadComentarios;
-    }
-    
-    public void setTactividadComentarios(Set tactividadComentarios) {
-        this.tactividadComentarios = tactividadComentarios;
-    }
     public Set getTactividadPresupuestos() {
         return this.tactividadPresupuestos;
     }
     
     public void setTactividadPresupuestos(Set tactividadPresupuestos) {
         this.tactividadPresupuestos = tactividadPresupuestos;
+    }
+    public Set getTactividadComentarios() {
+        return this.tactividadComentarios;
+    }
+    
+    public void setTactividadComentarios(Set tactividadComentarios) {
+        this.tactividadComentarios = tactividadComentarios;
     }
     public Set getTactividadParticipantes() {
         return this.tactividadParticipantes;

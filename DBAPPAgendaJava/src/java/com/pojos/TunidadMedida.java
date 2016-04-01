@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated 18/03/2016 04:48:44 PM by Hibernate Tools 4.3.1
+// Generated 01/04/2016 05:12:53 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -23,12 +23,10 @@ public class TunidadMedida  implements java.io.Serializable {
     }
 
 	
-    public TunidadMedida(String codigoUnidadMedida, String nombre, String descripcion, Date fechaRegistro, Date fechaModificacion) {
+    public TunidadMedida(String codigoUnidadMedida, String nombre, String descripcion) {
         this.codigoUnidadMedida = codigoUnidadMedida;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.fechaRegistro = fechaRegistro;
-        this.fechaModificacion = fechaModificacion;
     }
     public TunidadMedida(String codigoUnidadMedida, String nombre, String descripcion, Date fechaRegistro, Date fechaModificacion, Set tactividadPresupuestos) {
        this.codigoUnidadMedida = codigoUnidadMedida;

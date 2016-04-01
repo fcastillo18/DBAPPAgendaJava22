@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated 18/03/2016 04:48:44 PM by Hibernate Tools 4.3.1
+// Generated 01/04/2016 05:12:53 PM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -23,6 +23,15 @@ public class TactividadPresupuesto  implements java.io.Serializable {
     public TactividadPresupuesto() {
     }
 
+	
+    public TactividadPresupuesto(String codigoActividadPresupuesto, Tactividad tactividad, TunidadMedida tunidadMedida, String descripcion, BigDecimal precioUnitario, double cantidad) {
+        this.codigoActividadPresupuesto = codigoActividadPresupuesto;
+        this.tactividad = tactividad;
+        this.tunidadMedida = tunidadMedida;
+        this.descripcion = descripcion;
+        this.precioUnitario = precioUnitario;
+        this.cantidad = cantidad;
+    }
     public TactividadPresupuesto(String codigoActividadPresupuesto, Tactividad tactividad, TunidadMedida tunidadMedida, String descripcion, BigDecimal precioUnitario, double cantidad, Date fechaRegistro, Date fechaModificacion) {
        this.codigoActividadPresupuesto = codigoActividadPresupuesto;
        this.tactividad = tactividad;

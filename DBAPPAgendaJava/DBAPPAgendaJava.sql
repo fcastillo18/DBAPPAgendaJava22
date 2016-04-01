@@ -12,11 +12,11 @@ apellidoPaterno varchar(20) not null,
 apellidoMaterno varchar(20) not null,
 correoElectronico varchar(30) not null,
 contrasenia varchar(700) not null,
-fechaNacimiento date not null,
+fechaNacimiento datetime not null,
 sexo char(1) not null,
 telefono varchar(20) not null,
-fechaRegistro datetime not null default getdate(),
-fechaModificacion datetime not null,
+fechaRegistro datetime default getdate(),
+fechaModificacion datetime default getdate(),
 primary key(codigoUsuario)
 );
 
@@ -31,11 +31,11 @@ apellidoPaterno varchar(20) not null,
 apellidoMaterno varchar(20) not null,
 correoElectronico varchar(30) not null,
 contrasenia varchar(700) not null,
-fechaNacimiento date not null,
+fechaNacimiento datetime not null,
 sexo char(1) not null,
 telefono varchar(20) not null,
-fechaRegistro datetime not null default  getdate(),
-fechaModificacion datetime not null default  getdate(),
+fechaRegistro datetime  default  getdate(),
+fechaModificacion datetime default  getdate(),
 foreign key(codigoUsuario) references TUsuario(codigoUsuario)
 on update cascade on delete cascade,
 primary key(codigoUsuarioAmigo)
@@ -48,8 +48,8 @@ codigoUsuarioAmigoTelefono char(15) not null,
 codigoUsuarioAmigo char(15) not null,
 descripcion varchar(max) not null,
 telefono varchar(20) not null,
-fechaRegistro datetime not null default getdate(),
-fechaModificacion datetime not null default getdate(),
+fechaRegistro datetime  default getdate(),
+fechaModificacion datetime  default getdate(),
 foreign key(codigoUsuarioAmigo) references TUsuarioAmigo(codigoUsuarioAmigo)
 on update cascade on delete cascade,
 primary key(codigoUsuarioAmigoTelefono)
@@ -61,8 +61,8 @@ create table TUnidadMedida
 codigoUnidadMedida char(15) not null,
 nombre varchar(30) not null,
 descripcion varchar(max) not null,
-fechaRegistro datetime not null default getdate(),
-fechaModificacion datetime not null default getdate(),
+fechaRegistro datetime  default getdate(),
+fechaModificacion datetime  default getdate(),
 primary key (codigoUnidadMedida)
 );
 
@@ -77,8 +77,8 @@ fechaInicio datetime not null,
 fechaFin datetime not null,
 presupuestoTotal decimal(8, 2) not null,
 estado char(1) not null,
-fechaRegistro datetime not null default getdate(),
-fechaModificacion datetime not null default getdate(),
+fechaRegistro datetime default getdate(),
+fechaModificacion datetime default getdate(),
 foreign key(codigoUsuario) references TUsuario(codigoUsuario)
 
 );
@@ -92,8 +92,8 @@ codigoUnidadMedida char(15) not null,
 descripcion varchar(max) not null,
 precioUnitario decimal(8, 2) not null,
 cantidad float not null,
-fechaRegistro datetime not null default getdate(),
-fechaModificacion datetime not null default getdate(),
+fechaRegistro datetime  default getdate(),
+fechaModificacion datetime  default getdate(),
 foreign key(codigoActividad) references TActividad(codigoActividad)
 on update cascade on delete cascade,
 foreign key(codigoUnidadMedida) references TUnidadMedida(codigoUnidadMedida)
@@ -106,8 +106,8 @@ create table TActividadParticipante
 codigoActividadParticipante char(15) not null,
 codigoActividad char(15) not null,
 codigoUsuarioAmigo char(15) not null,
-fechaRegistro datetime not null default getdate(),
-fechaModificacion datetime not null default getdate(),
+fechaRegistro datetime default getdate(),
+fechaModificacion datetime default getdate(),
 foreign key(codigoActividad) references TActividad(codigoActividad)
 on update cascade on delete cascade,
 foreign key(codigoUsuarioAmigo) references TUsuarioAmigo(codigoUsuarioAmigo)
@@ -121,8 +121,8 @@ codigoActividadComentario char(15) not null,
 codigoActividad char(15) not null,
 codigoUsuarioAmigo char(15) not null,
 comentario varchar(max) not null,
-fechaRegistro datetime not null default getdate(),
-fechaModificacion datetime not null default getdate(),
+fechaRegistro datetime  default getdate(),
+fechaModificacion datetime  default getdate(),
 foreign key(codigoActividad) references TActividad(codigoActividad)
 on update cascade on delete cascade,
 foreign key(codigoUsuarioAmigo) references TUsuarioAmigo(codigoUsuarioAmigo)
@@ -139,13 +139,28 @@ DECLARE @codigo char(15), @part1 char(15), @nombre varchar(50), @apellido varcha
 select  @nombre = nombre, @apellido = apellidoPaterno
 from inserted 
 
-set @part1 = cast((select isnull(max(codigoUsuario), 0) from TUsuario) + 1  as char)
+set @part1 = cast((select COUNT(codigoUsuario) from TUsuario) + 1  as char)
 set @codigo = 'COD-'+ @part1
 
-UPDATE TUsuario
+update TUsuario
 SET codigoUsuario = @codigo
 WHERE nombre = @nombre and apellidoPaterno = @apellido
 
+
+--------------------TRIGGER PARA FECHA MODIFICADO-------------------------
+CREATE TRIGGER TG_Update_Fechas_ ON [dbo].[TUsuario]
+FOR INSERT
+AS
+DECLARE  @fechaMod datetime,  @codigo char(10)
+
+select  @codigo = codigoUsuario
+from inserted 
+
+set @fechaMod = GETDATE()
+
+update TUsuario
+SET fechaModificacion = @fechaMod
+WHERE codigoUsuario = @codigo 
 
 --------------------TRIGGER PARA FECHA PRIMERA CREACION-------------------------
 CREATE TRIGGER TG_Insert_Fechas ON [dbo].[TUsuario]
@@ -163,19 +178,6 @@ UPDATE TUsuario
 SET fechaRegistro = @fechaReg, fechaModificacion = @fechaMod
 WHERE nombre = @nombre and apellidoPaterno = @apellido
 
---------------------TRIGGER PARA FECHA MODIFICADO-------------------------
-CREATE TRIGGER TG_Update_Fechas_ ON [dbo].[TUsuario]
-FOR INSERT
-AS
-DECLARE  @fechaMod datetime,  @codigo char(10)
 
-select  @codigo = codigoUsuario
-from inserted 
-
-set @fechaMod = GETDATE()
-
-UPDATE TUsuario
-SET fechaModificacion = @fechaMod
-WHERE codigoUsuario = @codigo 
 
 select * from TUsuario

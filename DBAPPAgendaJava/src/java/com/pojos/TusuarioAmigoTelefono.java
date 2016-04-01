@@ -1,5 +1,5 @@
 package com.pojos;
-// Generated 18/03/2016 04:48:44 PM by Hibernate Tools 4.3.1
+// Generated 01/04/2016 05:12:53 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,6 +20,13 @@ public class TusuarioAmigoTelefono  implements java.io.Serializable {
     public TusuarioAmigoTelefono() {
     }
 
+	
+    public TusuarioAmigoTelefono(String codigoUsuarioAmigoTelefono, TusuarioAmigo tusuarioAmigo, String descripcion, String telefono) {
+        this.codigoUsuarioAmigoTelefono = codigoUsuarioAmigoTelefono;
+        this.tusuarioAmigo = tusuarioAmigo;
+        this.descripcion = descripcion;
+        this.telefono = telefono;
+    }
     public TusuarioAmigoTelefono(String codigoUsuarioAmigoTelefono, TusuarioAmigo tusuarioAmigo, String descripcion, String telefono, Date fechaRegistro, Date fechaModificacion) {
        this.codigoUsuarioAmigoTelefono = codigoUsuarioAmigoTelefono;
        this.tusuarioAmigo = tusuarioAmigo;

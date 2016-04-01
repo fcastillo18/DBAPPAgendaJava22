@@ -1,33 +1,32 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 18/03/2016 04:48:44 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/04/2016 05:12:53 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.pojos.TactividadPresupuesto" table="TActividadPresupuesto" schema="dbo" catalog="DBAPPAgendaJava" optimistic-lock="version">
-        <id name="codigoActividadPresupuesto" type="string">
-            <column name="codigoActividadPresupuesto" length="15" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="tactividad" class="com.pojos.Tactividad" fetch="select">
-            <column name="codigoActividad" length="15" not-null="true" />
-        </many-to-one>
-        <many-to-one name="tunidadMedida" class="com.pojos.TunidadMedida" fetch="select">
-            <column name="codigoUnidadMedida" length="15" not-null="true" />
-        </many-to-one>
-        <property name="descripcion" type="string">
-            <column name="descripcion" not-null="true" />
-        </property>
-        <property name="precioUnitario" type="big_decimal">
-            <column name="precioUnitario" precision="8" not-null="true" />
-        </property>
-        <property name="cantidad" type="double">
-            <column name="cantidad" precision="53" scale="0" not-null="true" />
-        </property>
-        <property name="fechaRegistro" type="timestamp">
-            <column name="fechaRegistro" length="23" not-null="true" />
-        </property>
-        <property name="fechaModificacion" type="timestamp">
-            <column name="fechaModificacion" length="23" not-null="true" />
-        </property>
-    </class>
+  <class catalog="DBAPPAgendaJava" name="com.pojos.TactividadPresupuesto" optimistic-lock="version" schema="dbo" table="TActividadPresupuesto">
+    <id name="codigoActividadPresupuesto" type="string">
+      <column length="15" name="codigoActividadPresupuesto"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.pojos.Tactividad" fetch="select" name="tactividad">
+      <column length="15" name="codigoActividad" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.pojos.TunidadMedida" fetch="select" name="tunidadMedida">
+      <column length="15" name="codigoUnidadMedida" not-null="true"/>
+    </many-to-one>
+    <property name="descripcion" type="string">
+      <column name="descripcion" not-null="true"/>
+    </property>
+    <property name="precioUnitario" type="big_decimal">
+      <column name="precioUnitario" not-null="true" precision="8"/>
+    </property>
+    <property name="cantidad" type="double">
+      <column name="cantidad" not-null="true" precision="53" scale="0"/>
+    </property>
+    <property name="fechaRegistro" type="timestamp">
+      <column length="23" name="fechaRegistro"/>
+    </property>
+    <property name="fechaModificacion" type="timestamp">
+      <column length="23" name="fechaModificacion"/>
+    </property>
+  </class>
 </hibernate-mapping>
