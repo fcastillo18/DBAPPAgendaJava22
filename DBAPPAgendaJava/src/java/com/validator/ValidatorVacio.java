@@ -35,7 +35,7 @@ public class ValidatorVacio implements Validator{
         }
         
         if (value.toString().trim().equals("")) {
-            throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", label+" es un campo obligatorio"));
+            throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error:", label+" es un campo obligatorio"));
         }
     }
     

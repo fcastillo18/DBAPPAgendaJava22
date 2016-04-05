@@ -21,23 +21,34 @@
                         <p:inputText id="txtNombre" label="Nombre" value="#{mbRUsuario.gettUsuario().nombre}">
                             <f:validator validatorId="validatorVacio"/>
                         </p:inputText>
+                        
                         <p:outputLabel value='Primer Apellido' for="txtApellido1"/>
-                        <p:inputText id="txtApellido1" label="Apellido1" value="#{mbRUsuario.gettUsuario().apellidoPaterno}"/>
-
+                        <p:inputText id="txtApellido1" label="Apellido1" value="#{mbRUsuario.gettUsuario().apellidoPaterno}">
+                        <f:validator validatorId="validatorVacio"/>
+                        </p:inputText>
+                        
                         <p:outputLabel value='Segundo Apellido' for="txtApellido2"/>
-                        <p:inputText id="txtApellido2" label="Apellido1" value="#{mbRUsuario.gettUsuario().apellidoMaterno}"/>
-
+                        <p:inputText id="txtApellido2" label="Apellido1" value="#{mbRUsuario.gettUsuario().apellidoMaterno}">
+                        <f:validator validatorId="validatorVacio"/>
+                        </p:inputText>
+                        
                         <p:outputLabel value="Correo electronico" for="txtCorreo"/>
-                        <p:inputText id="txtCorreo" label="Correo" value="#{mbRUsuario.gettUsuario().correoElectronico}"/>
+                        <p:inputText id="txtCorreo" label="Correo" value="#{mbRUsuario.gettUsuario().correoElectronico}">
+                        <f:validator validatorId="validatorVacio"/>
+                        </p:inputText>
 
                         <p:outputLabel value="Contraseña" for="txtContrasenia"/>
-                        <p:password id="txtContrasenia" label="Contrasenia" value="#{mbRUsuario.gettUsuario().contrasenia}"/>
+                        <p:password id="txtContrasenia" label="Contrasenia" value="#{mbRUsuario.gettUsuario().contrasenia}">
+                        <f:validator validatorId="validatorVacio"/>
+                        </p:password>
 
                         <p:outputLabel value="Repita Contraseña" for="txtContraseniaRepita"/>
                         <p:password id="txtContraseniaRepita" label="RepitaContranenia" value="#{mbRUsuario.txtContraseniaRepita}"/>
 
                         <p:outputLabel value="Fecha de Nacimiento" for="txtFechaNacimiento"/>
-                        <p:calendar id="txtFechaNacimiento" label="FechaNacimiento" showOn="button" value="#{mbRUsuario.gettUsuario().fechaNacimiento}"/>
+                        <p:calendar id="txtFechaNacimiento" label="FechaNacimiento" showOn="button" value="#{mbRUsuario.gettUsuario().fechaNacimiento}">
+                        <f:validator validatorId="validatorVacio"/>
+                        </p:calendar>
 
                         <p:outputLabel value="Sexo" for="radioSexo"/>
                         <p:selectOneRadio id="radioSexo" label="Sexo" value="#{mbRUsuario.gettUsuario().sexo}">
