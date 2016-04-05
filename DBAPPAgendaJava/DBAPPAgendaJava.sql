@@ -131,7 +131,7 @@ primary key(codigoActividadComentario)
 );
 
 --------------------TRIGGER PARA CREAR CODIGO USUARIO-------------------------
-ALTER TRIGGER TG_Codigo_Usuario ON [dbo].[TUsuario]
+CREATE TRIGGER TG_Codigo_Usuario ON [dbo].[TUsuario]
 FOR INSERT
 AS
 DECLARE @codigo char(15), @part1 char(15), @nombre varchar(50), @apellido varchar(50)
@@ -181,3 +181,5 @@ WHERE nombre = @nombre and apellidoPaterno = @apellido
 
 
 select * from TUsuario
+
+select contrasenia from TUsuario
